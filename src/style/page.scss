@@ -1,0 +1,44 @@
+:global {
+    .el-container {
+      height: 100%;
+      .el-footer {
+        text-align: center;
+      }
+      .el-main >
+        .el-form {
+          margin-right: 300px;
+          max-width: 600px;
+        }
+      
+    }
+  }
+  
+  .header {
+    line-height: 54px;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 16px;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .operation {
+    padding: 10px 0;
+  
+    .name {
+      font-size: 14px;
+      color: #8492a6;
+      margin: 0 10px;
+    }
+  
+    :global {
+      .el-input {
+        width: 180px;
+      }
+  
+      .el-button {
+        margin: 0 10px;
+      }
+    }
+  }
+
+  
