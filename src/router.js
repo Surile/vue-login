@@ -1,55 +1,53 @@
-import VueRouter from "vue-router";
-import Vue from "vue";
+import VueRouter from 'vue-router'
+import Vue from 'vue'
 import Home from './Home'
-import Users from "./Home/users";
-import Register from "./Account/register"
-import Login from "./Account/login";
+import Users from './Home/users'
+import Register from './Account/register'
+import Login from './Account/login'
 import { store } from './store'
-
 
 Vue.use(VueRouter)
 
 const routes = [
     {
-        path:'/',
-        component:Home,
+        path: '/',
+        component: Home,
         beforeEnter: (to, from, next) => {
-            const token  = store.state.isLogin
+            const token = store.state.isLogin
             if (!token) {
-              next('/login')
-            }else{
+                next('/login')
+            } else {
                 next()
-            } 
-          },
-        children:[
+            }
+        },
+        children: [
             {
-                path:'/',
-                component:Users
+                path: '/',
+                component: Users
             }
         ]
     },
     {
-        path:'/login',
-        component:Login,
-        beforeEnter:(to, from, next) => {
+        path: '/login',
+        component: Login,
+        beforeEnter: (to, from, next) => {
             const token = store.state.isLogin
             if (token) {
                 next('/')
-            }else{
+            } else {
                 next()
             }
         }
     },
     {
-        path:'/register',
-        component:Register
+        path: '/register',
+        component: Register
     }
 ]
 
 const router = new VueRouter({
-    mode:'history',
+    mode: 'hash',
     routes
 })
-
 
 export default router
